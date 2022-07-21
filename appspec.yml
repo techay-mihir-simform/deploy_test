@@ -2,11 +2,20 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu
+    destination: /home/ubuntu/test_node
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+
 hooks:
-  AfterInstall:
-    - location: afterinstall.sh
+  BeforeInstall:
+    - location: script/removenode.sh
       timeout: 100
+      runas: ubuntu
   ApplicationStart:
-    - location: applicationstart.sh
+    - location: script/startnode.sh
       timeout: 100
+      runas: ubuntu
