@@ -12,10 +12,10 @@ permissions:
 
 hooks:
   BeforeInstall:
-    - location: script/removenode.sh
+    - location: scripts/removenode.sh
       timeout: 300
       runas: ubuntu
   ApplicationStart:
-    - location: script/startnode.sh
+    - location: scripts/startnode.sh
       timeout: 300
       runas: ubuntu
